@@ -15,8 +15,8 @@ app.use(cors());
 app.use('/posts', postRoutes)
 
 const PORT = process.env.PORT;
-console.log(process.env.CONNECTION_URL)
+const CONNECTION_URL = process.env.CONNECTION_URL;
 
-mongoose.connect(process.env.CONNECTION_URL)
+mongoose.connect(CONNECTION_URL)
     .then(() => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`)))
     .catch((err) => console.log(err.message));
