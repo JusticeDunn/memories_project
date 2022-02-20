@@ -3,9 +3,11 @@ import * as api from '../api/index.js';
 
 export const signin = (formData, history) => async (dispatch) => {
     try {
-        // log in the user..
+        const { data } = await api.signIn(formData);
 
-        history.push('/');
+        dispatch({ type: AUTH, data });
+
+        history('/');
     } catch (err) {
         console.log(err);
     }
@@ -13,9 +15,11 @@ export const signin = (formData, history) => async (dispatch) => {
 
 export const signup = (formData, history) => async (dispatch) => {
     try {
-        // sign up of the user..
+        const { data } = await api.signUp(formData);
 
-        history.push('/');
+        dispatch({ type: AUTH, data });
+
+        history('/');
     } catch (err) {
         console.log(err);
     }
