@@ -4,6 +4,7 @@ import { AppBar, Avatar, Typography, Toolbar, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
 import useStyles from './styles';
 import memories from '../../images/memories.png';
+import { LOGOUT } from '../../constants/actionTypes';
 
 const Navbar = () => {
     const classes = useStyles();
@@ -13,9 +14,9 @@ const Navbar = () => {
     const location = useLocation();
     
     const logout = () => {
-        dispatch({ type: 'LOGOUT' });
+        dispatch({ type: LOGOUT });
 
-        history('/');
+        history('/auth');
 
         setUser(null);
     };
